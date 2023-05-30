@@ -1,9 +1,8 @@
-import { Router, Request, Response } from "express";
+import { Router } from "express";
+import { getVideogames } from "../controllers/videogame";
 
 const router = Router();
 
-router.get("/", (_req: Request, res: Response) => {
-  res.send({ data: "HERE ARE MY VIDEOGAMES ROUTE" });
-});
+router.get("/", getVideogames);
 
 export { router };
