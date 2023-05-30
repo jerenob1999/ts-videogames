@@ -1,12 +1,10 @@
 import "dotenv/config";
 import { connect } from "mongoose";
 
-const NODE_ENV = process.env.NODE_ENV;
-
 dbVideogames().catch((err) => console.log(err));
 
 async function dbVideogames(): Promise<void> {
-  const DB_URI = <string>NODE_ENV;
+  const DB_URI = <string>process.env.DT_URI;
   await connect(DB_URI);
 }
 
