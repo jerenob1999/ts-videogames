@@ -1,10 +1,7 @@
 import { Request, Response } from "express";
 import handleHttp from "../utils/error.handle";
-import "dotenv/config"
-import axios from "axios";
-
-
-const API: string = "https://api.rawg.io/api/games?key="
+import "dotenv/config";
+import { axiosVideogames } from "../services";
 
 const getVideogame = (req: Request, res: Response) => {
   try {
@@ -17,8 +14,8 @@ const getVideogame = (req: Request, res: Response) => {
 
 const getVideogames = async (_req: Request, res: Response) => {
   try {
-     const response = (await axios.get(`${API}${process.env.API_KEY}`)).data;
-     res.send(response);
+    const response = await axiosVideogames();
+    res.send(response);
   } catch (error) {
     handleHttp(res, "ERROR_GET_VIDEOGAME", error);
   }
