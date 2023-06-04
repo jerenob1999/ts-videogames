@@ -1,14 +1,15 @@
 import { Request, Response } from "express";
 import handleHttp from "../utils/error.handle";
 import "dotenv/config";
-import { axiosVideogames } from "../services";
+import { axiosVideogames, axiosVideogameDetail } from "../services";
 
-const getVideogame = (req: Request, res: Response) => {
+const getVideogameDetail = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    res.send(id);
+    const videogameDetail = await axiosVideogameDetail(id);
+    res.send(videogameDetail);
   } catch (error) {
-    handleHttp(res, "ERROR_GET_VIDEOGAME");
+    handleHttp(res, "ERROR_GET_VIDEOGAME", error);
   }
 };
 
@@ -21,4 +22,4 @@ const getVideogames = async (_req: Request, res: Response) => {
   }
 };
 
-export { getVideogame, getVideogames };
+export { getVideogameDetail, getVideogames };

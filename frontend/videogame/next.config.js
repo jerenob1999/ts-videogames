@@ -1,8 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    experimental: {
-      serverActions: true,
-    },
-  };
+  reactStrictMode: true,
+  swcMinify: true,
+  experimental: {
+    appDir: true,
+  },
+  images: {
+    remotePatterns:[
+      {
+        hostname: "media.rawg.io"
+      }
+    ]
+  }
+};
 
-module.exports = nextConfig;
+module.exports =  nextConfig;
+
+
+
+
