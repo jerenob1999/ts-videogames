@@ -3,6 +3,7 @@ import { Route } from "../../models/routes.model";
 import Link from "next/link";
 import "./Navbar.css"
 
+
 interface Props {
   pathNames: Route[];
 }
