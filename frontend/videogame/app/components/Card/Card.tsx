@@ -7,9 +7,10 @@ import "./Card.css";
 type CardData = Partial<Videogame & Genre>;
 interface Props {
   data: CardData;
+  route:string
 }
 
-function VideogameCard({ data }: Props) {
+function VideogameCard({ data, route }: Props) {
   const renderImage = (src: string) => (
     <Image
       width="400"
@@ -25,14 +26,12 @@ function VideogameCard({ data }: Props) {
     />
   );
 
-  const cardLink = (href: string) => {
-  }
   return (
-    <Link href={`/videogame/${data.id}`}>
+    <Link href={`/${route}/${data.id}`}>
       <div className="Card">
-        <p>Name: {data.name} </p>
-        <p>Rating: {data.rating} </p>
-        <p>Release Date: {data.released}</p>
+        <p>{data.name}</p>
+        {data.rating && <p>Rating: {data.rating} </p>}
+        {data.released && <p>Release Date: {data.released}</p>}
         {!!data.background_image && renderImage(data.background_image)}
         {!!data.image_background && renderImage(data.image_background)}
       </div>

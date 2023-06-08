@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import handleHttp from "../utils/error.handle";
-import { axiosGenres } from "../services/genres";
+import { axiosGenres, getVideogamesByGenre } from "../services/genres";
+
 
 const getGenres = async (_req: Request, res: Response) => {
   try {
@@ -21,4 +22,15 @@ const getGenreDetail = async (req: Request, res: Response) => {
   }
 };
 
-export { getGenres, getGenreDetail };
+const getVideogamesGenre = async (req: Request, res:Response) => {
+  try {
+    const {genres} = req.query
+    console.log(genres)
+    const videogameGenres = await getVideogamesByGenre(genres)
+    res.send(videogameGenres)
+  } catch (error) {
+    handleHttp(res, "ERROR_GET_VIDEOGAME_BY_GENRE" , error)
+  }
+}
+
+export { getGenres, getGenreDetail, getVideogamesGenre };

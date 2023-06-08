@@ -9,4 +9,11 @@ const axiosGenres = async (id?: string) => {
   return response.data;
 };
 
-export { axiosGenres };
+const getVideogamesByGenre = async (slug: any) => {
+  const response = await axios.get(
+    `https://api.rawg.io/api/games?genres=${slug}&key=${API_KEY}`
+  );
+  return response.data;
+};
+
+export { axiosGenres, getVideogamesByGenre };
