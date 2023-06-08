@@ -7,6 +7,10 @@ export const Routes = {
     path: "/home",
     name: "Home",
   },
+  GENRES: {
+    path: "/genres",
+    name: "Genres"
+  }
 };
 
 export interface Route {

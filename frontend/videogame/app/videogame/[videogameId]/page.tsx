@@ -2,6 +2,8 @@ import React from 'react'
 import  getVideogameID  from '../services/videogameID.services'
 import Card from '../../components/Card/Card'
 
+
+
 type Params = {
     params: {
         videogameId:string

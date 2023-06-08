@@ -7,7 +7,7 @@ import ButtonAppBar from "../components/NavBar/iu/NavBar.ui";
 function Home() {
   return (
     <div>
-      <ButtonAppBar pathNames={[Routes.VIDEOGAMES]}></ButtonAppBar>
+      <ButtonAppBar pathNames={[Routes.VIDEOGAMES, Routes.GENRES]}></ButtonAppBar>
       <h1>WELCOME TO VIDEOGAME APP</h1>
     </div>
   );
